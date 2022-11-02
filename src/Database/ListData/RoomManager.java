@@ -21,7 +21,7 @@ public class RoomManager extends BaseQuery<RoomEntity> {
     }
     @Override
     public String querySearch(RoomEntity entity){
-        return "select * from room where ten like '%" + entity.textSearch + "%'";
+        return "select * from room where name like '%" + entity.textSearch + "%'";
     }
     @Override
     public String queryCreate(RoomEntity entity){

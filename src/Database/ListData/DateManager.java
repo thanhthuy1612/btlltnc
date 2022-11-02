@@ -4,8 +4,8 @@ import Database.Base.BaseQuery;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
+import java.sql.Date;
 
 public class DateManager extends BaseQuery<DateEntity> {
     private RoomManager roomManager;

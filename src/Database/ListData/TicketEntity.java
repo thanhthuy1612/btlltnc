@@ -8,6 +8,7 @@ public class TicketEntity extends BaseEntity {
     private Integer timeId;
     private Integer rowTicket;
     private Integer columnTicket;
+    private DateEntity dateEntity;
     public void setId(Integer id){
         this.id = id;
     }
@@ -23,6 +24,7 @@ public class TicketEntity extends BaseEntity {
     public void setColumnTicket(Integer columnTicket){
         this.columnTicket = columnTicket;
     }
+    public void setDateEntity(DateEntity dateEntity){ this.dateEntity = dateEntity;}
     @Override
     public Integer getId(){
         return id;
@@ -39,4 +41,5 @@ public class TicketEntity extends BaseEntity {
     public Integer getColumnTicket(){
         return columnTicket;
     }
+    public DateEntity getDateEntity(){ return dateEntity;}
 }

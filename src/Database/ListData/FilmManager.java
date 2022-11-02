@@ -22,7 +22,7 @@ public class FilmManager extends BaseQuery<FilmEntity> {
     }
     @Override
     public String querySearch(FilmEntity entity){
-        return "select * from film where ten like '%" + entity.textSearch + "%'";
+        return "select * from film where name like '%" + entity.textSearch + "%'";
     }
     @Override
     public String queryCreate(FilmEntity entity){
