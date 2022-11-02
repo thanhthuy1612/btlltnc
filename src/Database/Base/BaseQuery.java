@@ -22,15 +22,9 @@ public abstract class BaseQuery<Entity extends BaseEntity> implements IBaseQuery
     public Statement getStatement(){
         return statement;
     }
-    public String querySearch(Entity entity){
-        return "select * from " + tableName;
-    }
-    public String queryUpdate(Entity entity){
-        return "delete * from " + tableName+" where 1=2";
-    }
-    public String queryCreate(Entity entity){
-        return "delete * from " + tableName+" where 1=2";
-    }
+    public abstract String querySearch(Entity entity);
+    public abstract String queryUpdate(Entity entity);
+    public abstract String queryCreate(Entity entity);
     public abstract Entity convertToEntity(ResultSet resultSet) throws SQLException;
 
     public Entity convertToEntityNext(ResultSet resultSet) throws  SQLException{
@@ -76,6 +70,6 @@ public abstract class BaseQuery<Entity extends BaseEntity> implements IBaseQuery
     }
     @Override
     public void delete(Integer id) throws SQLException{
-        statement.executeUpdate("delete FROM "+ tableName + " where id="+id);
+        statement.executeUpdate("delete FROM "+ tableName + " where id=" + id);
     }
 }

@@ -2,15 +2,15 @@ package Database.ListData;
 
 import Database.Base.BaseEntity;
 
-import java.util.Date;
-
 public class DateEntity extends BaseEntity {
     private Integer id;
     private Integer roomId;
     private Integer filmId;
     private String time;
-    private Date date;
+    private String date;
     private Integer soldOut;
+    private String nameFilm;
+    private String nameRoom;
     public void setId(Integer id){
         this.id = id;
     }
@@ -23,12 +23,14 @@ public class DateEntity extends BaseEntity {
     public void setTime(String time){
         this.time = time;
     }
-    public void setDate(Date date){
+    public void setDate(String date){
         this.date =date;
     }
     public void setSoldOut(Integer soldOut){
         this.soldOut = soldOut;
     }
+    public void setNameFilm(String nameFilm){ this.nameFilm =  nameFilm; }
+    public void setNameRoom(String nameRoom){ this.nameRoom = nameRoom; }
     @Override
     public Integer getId(){
         return id;
@@ -42,10 +44,12 @@ public class DateEntity extends BaseEntity {
     public String getTime(){
         return time;
     }
-    public Date getDate(){
+    public String getDate(){
         return date;
     }
     public Integer getSoldOut(){
         return soldOut;
     }
+    public String getNameFilm(){ return nameFilm; }
+    public String getNameRoom(){ return nameRoom; }
 }
