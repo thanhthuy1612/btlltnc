@@ -2,15 +2,13 @@ package Database.ListData;
 
 import Database.Base.BaseEntity;
 
-import java.sql.Date;
-
 public class UserEntity extends BaseEntity {
     private Integer id;
     private String username;
     private String password;
     private String fullname;
     private Integer gender;
-    private Date bithday;
+    private String bithday;
     private Integer type;
     public void setId(Integer id){
         this.id = id;
@@ -27,7 +25,7 @@ public class UserEntity extends BaseEntity {
     public void setGender(Integer gender){
         this.gender = gender;
     }
-    public void setBithday(Date bithday){
+    public void setBithday(String bithday){
         this.bithday = bithday;
     }
     public void setType(Integer type){
@@ -47,7 +45,7 @@ public class UserEntity extends BaseEntity {
     public String getFullname() {
         return fullname;
     }
-    public Date getBithday() {
+    public String getBithday() {
         return bithday;
     }
     public Integer getGender() {

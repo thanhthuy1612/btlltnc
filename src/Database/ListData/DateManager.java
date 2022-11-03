@@ -43,18 +43,20 @@ public class DateManager extends BaseQuery<DateEntity> {
     @Override
     public String queryCreate(DateEntity entity){
         return "Insert into date"
-                + "(id, roomId, filmId, time, date)"
+                + "(id, roomId, filmId, soldOut, time, date)"
                 + "values("+entity.getId()
                 + "," + entity.getRoomId()
                 + "," + entity.getFilmId()
+                + "," + entity.getSoldOut()
                 + ",'" + entity.getTime()
                 + "','" + entity.getDate() + "')";
     }
-    public void create(int id,int roomId, int filmId, String time, String date) throws SQLException{
+    public void create(int id,int roomId, int filmId, int soldOut, String time, String date) throws SQLException{
         DateEntity entity = new DateEntity();
         entity.setId(id);
         entity.setFilmId(filmId);
         entity.setRoomId(roomId);
+        entity.setSoldOut(soldOut);
         entity.setTime(time);
         entity.setDate(date);
         getStatement().executeUpdate(queryCreate(entity));
@@ -64,6 +66,7 @@ public class DateManager extends BaseQuery<DateEntity> {
         return "update date" +
                 " set roomId=" + entity.getRoomId()
                 + ", filmId=" + entity.getFilmId()
+                + ", soldOut= " + entity.getSoldOut()
                 + ", time= '" + entity.getTime()
                 + "', date= '" + entity.getDate()
                 + "' where id=" + entity.getId();

@@ -28,9 +28,18 @@ public class TicketManager extends BaseQuery<TicketEntity> {
     public List<TicketEntity> findByUserId(Integer userId) throws SQLException{
         return convertToEntities(getStatement().executeQuery("select * from ticket where userId = " + userId));
     }
+    public void create(int id, int userId, int timeId, int rowTicket, int columnTicket)throws SQLException{
+        TicketEntity entity = new TicketEntity();
+        entity.setId(id);
+        entity.setUserId(userId);
+        entity.setTimeId(timeId);
+        entity.setRowTicket(rowTicket);
+        entity.setColumnTicket(columnTicket);
+        getStatement().executeUpdate(queryCreate(entity));
+    }
     @Override
     public String queryCreate(TicketEntity entity) {
-        return "Insert into ticket (id, userId, timeId, rowTicket, columnTicket) values( "+ entity.getId()+", "+ entity.getUserId()+", "+entity.getRowTicket()+", "+entity.getColumnTicket()+")";
+        return "INSERT INTO ticket (id, userId, timeId, rowTicket, columnTicket) \nVALUES ( "+ entity.getId()+", "+ entity.getUserId()+", "+entity.getTimeId()+", "+entity.getRowTicket()+", "+entity.getColumnTicket()+")";
     }
     @Override
     public String querySearch(TicketEntity entity){
